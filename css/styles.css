@@ -89,12 +89,19 @@
       align-items: center;
       width: 100%;
   }
-  .fight-bar-img {
+  .fight-bar-img1 {
     max-width: 100px !important; /* Adjust image size on smaller screens */
     height: auto;
-    display: block; /* Ensures the image is treated as a block-level element */
+    display: block!important; /* Ensures the image is treated as a block-level element */
     margin-right: auto; /* Keeps the right margin flexible, pushing the image to the left */
-    margin-left: 20px; /* Sets the left margin to 0 to align it exactly to the left */
+    margin-left: 20px !important; /* Sets the left margin to 0 to align it exactly to the left */
+}
+.fight-bar-img2 {
+  max-width: 100px !important; /* Adjust image size on smaller screens */
+  height: auto;
+  display: block!important; /* Ensures the image is treated as a block-level element */
+  margin-right: 20px !important; /* Keeps the right margin flexible, pushing the image to the left */
+  margin-left: auto; /* Sets the left margin to 0 to align it exactly to the left */
 }
   .fight-ers, .fight-vs, .fight-odds {
       text-align: center;
@@ -109,7 +116,11 @@
   }
 }
 
-.fight-bar-img {
+.fight-bar-img1 {
+  max-width: 250px; /* Adjust image size on larger screens */
+  height: auto;
+}
+.fight-bar-img2 {
   max-width: 250px; /* Adjust image size on larger screens */
   height: auto;
 }
