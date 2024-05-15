@@ -170,7 +170,15 @@
   background-color: #f8f9fa; /* Slightly lighter background on hover */
   cursor: pointer; /* Change cursor to indicate clickable */
 }
+.fight-bar2 {
+  transition: all 0.01s ease; /* Smooth transition for hover effects */
+}
 
+.fight-bar2:hover {
+  border: 2px solid #000000; /* Gold border on hover */
+  background-color: #f8f9fa; /* Slightly lighter background on hover */
+  cursor: pointer; /* Change cursor to indicate clickable */
+}
 .number-above {
   display: block;
   text-align: center;
