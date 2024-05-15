@@ -97,9 +97,9 @@
 /* Media Query for devices with max-width of 768px */
 @media (max-width: 768px) {
   #main-card {
-      transform: scale(0.4);
+      transform: scale(0.25);
       transform-origin: top left; /* Ensures the scaling happens from top left corner */
-      width: 250%; /* Increase width to compensate for the reduced scale */
+      width: 400%; /* Increase width to compensate for the reduced scale */
       height: auto; /* Adjust height automatically */
       overflow: visible; /* Ensures nothing is cut off */
       
