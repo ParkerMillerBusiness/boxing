@@ -103,6 +103,7 @@
   #fightDetails .col-md-4 {
       flex: 0 0 100%; /* Make each column full width on small screens */
       max-width: 100%;
+      font-size: 6px;
   }
 }
 
