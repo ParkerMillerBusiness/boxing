@@ -90,7 +90,7 @@
       width: 100%;
   }
   .fight-bar img {
-      max-width: 20px; /* Adjust image size on smaller screens */
+      max-width: 100px; /* Adjust image size on smaller screens */
   }
   .fight-ers, .fight-vs, .fight-odds {
       text-align: center;
@@ -104,15 +104,6 @@
       flex: 0 0 100%; /* Make each column full width on small screens */
       max-width: 100%;
   }
-}
-
-/* General Styling for fight details to align properly on all devices */
-#fightDetails .col-md-4 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
 }
 
 .fight-bar {
