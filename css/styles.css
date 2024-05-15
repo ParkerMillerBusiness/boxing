@@ -97,17 +97,17 @@
 /* Media Query for devices with max-width of 768px */
 @media (max-width: 768px) {
   #main-card {
-      transform: scale(0.5);
+      transform: scale(0.4);
       transform-origin: top left; /* Ensures the scaling happens from top left corner */
-      width: 200%; /* Increase width to compensate for the reduced scale */
+      width: 250%; /* Increase width to compensate for the reduced scale */
       height: auto; /* Adjust height automatically */
       overflow: visible; /* Ensures nothing is cut off */
       
   }
   #prelims {
-    transform: scale(0.5);
+    transform: scale(0.4);
     transform-origin: top left; /* Ensures the scaling happens from top left corner */
-    width: 200%; /* Increase width to compensate for the reduced scale */
+    width: 250%; /* Increase width to compensate for the reduced scale */
     height: auto; /* Adjust height automatically */
     overflow: visible; /* Ensures nothing is cut off */
     
@@ -129,9 +129,9 @@
 }
 @media (max-width: 812px) {
   #main-card {
-      transform: scale(0.5);
+      transform: scale(1);
       transform-origin: top left; /* Ensures the scaling happens from top left corner */
-      width: 200%; /* Increase width to compensate for the reduced scale */
+      width: 100%; /* Increase width to compensate for the reduced scale */
       height: auto; /* Adjust height automatically */
       overflow: visible; /* Ensures nothing is cut off */
       
