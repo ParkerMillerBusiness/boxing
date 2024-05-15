@@ -90,9 +90,12 @@
       width: 100%;
   }
   .fight-bar-img {
-      max-width: 50px !important; /* Adjust image size on smaller screens */
-      height: auto;
-  }
+    max-width: 100px !important; /* Adjust image size on smaller screens */
+    height: auto;
+    display: block; /* Ensures the image is treated as a block-level element */
+    margin-right: auto; /* Keeps the right margin flexible, pushing the image to the left */
+    margin-left: 20px; /* Sets the left margin to 0 to align it exactly to the left */
+}
   .fight-ers, .fight-vs, .fight-odds {
       text-align: center;
       margin: 10px 0; /* Add spacing to separate elements vertically */
