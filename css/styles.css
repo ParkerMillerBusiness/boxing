@@ -96,7 +96,7 @@
   #main-card {
       transform: scale(0.3);
       transform-origin: top left; /* Ensures the scaling happens from top left corner */
-      width: 400%; /* Increase width to compensate for the reduced scale */
+      width: 333.33%; /* Increase width to compensate for the reduced scale */
       height: auto; /* Adjust height automatically */
       overflow: visible; /* Ensures nothing is cut off */
       
@@ -111,14 +111,14 @@
 #about {
   transform: scale(0.3);
   transform-origin: top left; /* Ensures the scaling happens from top left corner */
-  width: 400%; /* Increase width to compensate for the reduced scale */
+  width: 333.33%; /* Increase width to compensate for the reduced scale */
   height: auto; /* Adjust height automatically */
   overflow: visible; /* Ensures nothing is cut off */
 }
 }
 @media (max-width: 812px) {
   #main-card {
-      transform: scale(0.5);
+      transform: scale(0.25);
       transform-origin: top left; /* Ensures the scaling happens from top left corner */
       width: 400%; /* Increase width to compensate for the reduced scale */
       height: auto; /* Adjust height automatically */
@@ -128,14 +128,14 @@
   #site-footer {
     transform: scale(0.75);
     transform-origin: top left; /* Ensures the scaling happens from top left corner */
-    width: 400%; /* Increase width to compensate for the reduced scale */
+    width: 133.33%; /* Increase width to compensate for the reduced scale */
     height: auto; /* Adjust height automatically */
     overflow: visible; /* Ensures nothing is cut off */
 }
 #about {
   transform: scale(0.75);
   transform-origin: top left; /* Ensures the scaling happens from top left corner */
-  width: 400%; /* Increase width to compensate for the reduced scale */
+  width: 133.33%; /* Increase width to compensate for the reduced scale */
   height: auto; /* Adjust height automatically */
   overflow: visible; /* Ensures nothing is cut off */
 }
