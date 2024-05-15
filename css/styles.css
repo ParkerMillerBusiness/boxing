@@ -90,6 +90,9 @@
 #site-footer {
   transition: transform 0.3s ease; /* Smooth transition for scaling */
 }
+#prelims {
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
 
 /* Media Query for devices with max-width of 768px */
 @media (max-width: 768px) {
@@ -101,6 +104,14 @@
       overflow: visible; /* Ensures nothing is cut off */
       
   }
+  #prelims {
+    transform: scale(0.3);
+    transform-origin: top left; /* Ensures the scaling happens from top left corner */
+    width: 333.33%; /* Increase width to compensate for the reduced scale */
+    height: auto; /* Adjust height automatically */
+    overflow: visible; /* Ensures nothing is cut off */
+    
+}
   #site-footer {
     transform: scale(0.25);
     transform-origin: top left; /* Ensures the scaling happens from top left corner */
