@@ -87,7 +87,7 @@
 /* Media Query for devices with max-width of 768px */
 @media (max-width: 768px) {
   #main-card {
-      transform: scale(0.25);
+      transform: scale(0.5);
       transform-origin: top left; /* Ensures the scaling happens from top left corner */
       width: 400%; /* Increase width to compensate for the reduced scale */
       height: auto; /* Adjust height automatically */
