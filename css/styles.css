@@ -79,6 +79,42 @@
   --bs-highlight-bg: #fff3cd;
 }
 
+@media (max-width: 768px) {
+  .fight-bar {
+      flex-direction: column;
+      align-items: center;
+  }
+  .fight-bar .d-flex {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+  }
+  .fight-bar img {
+      max-width: 100px; /* Adjust image size on smaller screens */
+  }
+  .fight-ers, .fight-vs, .fight-odds {
+      text-align: center;
+      margin: 10px 0; /* Add spacing to separate elements vertically */
+  }
+  .number-above {
+      position: relative; /* Adjust positioning or font size */
+      font-size: 0.8rem; /* Smaller font size for numbers */
+  }
+  #fightDetails .col-md-4 {
+      flex: 0 0 100%; /* Make each column full width on small screens */
+      max-width: 100%;
+  }
+}
+
+/* General Styling for fight details to align properly on all devices */
+#fightDetails .col-md-4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 .fight-bar {
   transition: all 0.01s ease; /* Smooth transition for hover effects */
 }
