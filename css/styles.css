@@ -79,6 +79,61 @@
   --bs-highlight-bg: #fff3cd;
 }
 
+.fight-bar {
+  transition: all 0.01s ease; /* Smooth transition for hover effects */
+}
+
+.fight-bar:hover {
+  border: 2px solid #000000; /* Gold border on hover */
+  background-color: #f8f9fa; /* Slightly lighter background on hover */
+  cursor: pointer; /* Change cursor to indicate clickable */
+}
+
+.number-above {
+  display: block;
+  text-align: center;
+  margin-bottom: 10px; /* Adjust space between the number and the name */
+  margin-top: 0px;
+}
+
+.fight-ers {
+  color: #333; /* Dark text color for visibility */
+  font-size: 1.5em; /* Size of the text */
+  padding: 5px 10px; /* Padding for better spacing */
+  border-radius: 5px; /* Rounded corners for aesthetics */
+  width: fit-content;
+  margin: 0 auto; /* Centers the category text */
+  margin-top: -75px;
+}
+
+.fight-vs {
+  color: #333; /* Dark text color for visibility */
+  font-size: 1.5em; /* Size of the text */
+  padding: 5px 10px; /* Padding for better spacing */
+  border-radius: 5px; /* Rounded corners for aesthetics */
+  width: fit-content;
+  margin: 0 auto; /* Centers the category text */
+  margin-top: 50px;
+}
+
+.fight-category {
+  color: #333; /* Dark text color for visibility */
+  font-size: 0.9em; /* Size of the text */
+  padding: 5px 10px; /* Padding for better spacing */
+  border-radius: 5px; /* Rounded corners for aesthetics */
+  width: fit-content;
+  margin: 0 auto; /* Centers the category text */
+}
+
+.fight-odds {
+  color: #333; /* Matching text color */
+  font-size: 0.9em; /* Size of the text */
+  padding: 2px 5px; /* Slightly less padding than category text */
+  border-radius: 5px; /* Rounded corners for aesthetics */
+  width: fit-content;
+  margin-top: 60px; /* Space from VS */
+}
+
 #eventTitle {
   margin-top: 100px; /* You can adjust this value to get the desired space */
 }
