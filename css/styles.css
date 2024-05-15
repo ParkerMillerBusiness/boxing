@@ -83,47 +83,64 @@
 #main-card {
   transition: transform 0.3s ease; /* Smooth transition for scaling */
 }
-
-/* Media Query for devices with max-width of 768px */
-@media (max-width: 768px) {
-  #main-card {
-      transform: scale(0.5);
-      transform-origin: top left; /* Ensures the scaling happens from top left corner */
-      width: 400%; /* Increase width to compensate for the reduced scale */
-      height: auto; /* Adjust height automatically */
-      overflow: visible; /* Ensures nothing is cut off */
-  }
-}
-/* Base CSS */
 #about {
   transition: transform 0.3s ease; /* Smooth transition for scaling */
 }
 
-/* Media Query for devices with max-width of 768px */
-@media (max-width: 768px) {
-  #about {
-      transform: scale(0.75);
-      transform-origin: top left; /* Ensures the scaling happens from top left corner */
-      width: 400%; /* Increase width to compensate for the reduced scale */
-      height: auto; /* Adjust height automatically */
-      overflow: visible; /* Ensures nothing is cut off */
-  }
-}
-/* Base CSS */
 #site-footer {
   transition: transform 0.3s ease; /* Smooth transition for scaling */
 }
 
 /* Media Query for devices with max-width of 768px */
 @media (max-width: 768px) {
-  #site-footer {
-      transform: scale(0.75);
+  #main-card {
+      transform: scale(0.3);
       transform-origin: top left; /* Ensures the scaling happens from top left corner */
       width: 400%; /* Increase width to compensate for the reduced scale */
       height: auto; /* Adjust height automatically */
       overflow: visible; /* Ensures nothing is cut off */
+      
   }
+  #site-footer {
+    transform: scale(0.25);
+    transform-origin: top left; /* Ensures the scaling happens from top left corner */
+    width: 400%; /* Increase width to compensate for the reduced scale */
+    height: auto; /* Adjust height automatically */
+    overflow: visible; /* Ensures nothing is cut off */
 }
+#about {
+  transform: scale(0.3);
+  transform-origin: top left; /* Ensures the scaling happens from top left corner */
+  width: 400%; /* Increase width to compensate for the reduced scale */
+  height: auto; /* Adjust height automatically */
+  overflow: visible; /* Ensures nothing is cut off */
+}
+}
+@media (max-width: 812px) {
+  #main-card {
+      transform: scale(0.5);
+      transform-origin: top left; /* Ensures the scaling happens from top left corner */
+      width: 400%; /* Increase width to compensate for the reduced scale */
+      height: auto; /* Adjust height automatically */
+      overflow: visible; /* Ensures nothing is cut off */
+      
+  }
+  #site-footer {
+    transform: scale(0.75);
+    transform-origin: top left; /* Ensures the scaling happens from top left corner */
+    width: 400%; /* Increase width to compensate for the reduced scale */
+    height: auto; /* Adjust height automatically */
+    overflow: visible; /* Ensures nothing is cut off */
+}
+#about {
+  transform: scale(0.75);
+  transform-origin: top left; /* Ensures the scaling happens from top left corner */
+  width: 400%; /* Increase width to compensate for the reduced scale */
+  height: auto; /* Adjust height automatically */
+  overflow: visible; /* Ensures nothing is cut off */
+}
+}
+
 
 .fight-bar-img1 {
   max-width: 250px; /* Adjust image size on larger screens */
