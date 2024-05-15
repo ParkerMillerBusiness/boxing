@@ -79,6 +79,10 @@
   --bs-highlight-bg: #fff3cd;
 }
 
+#eventTitle {
+  margin-top: 100px; /* You can adjust this value to get the desired space */
+}
+
 .rounded-circle {
   border-radius: 50%;
 }
