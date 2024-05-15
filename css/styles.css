@@ -80,13 +80,13 @@
 }
 
 /* Base CSS */
-.page-section {
+#main-card {
   transition: transform 0.3s ease; /* Smooth transition for scaling */
 }
 
 /* Media Query for devices with max-width of 768px */
 @media (max-width: 768px) {
-  .page-section {
+  #main-card {
       transform: scale(0.25);
       transform-origin: top left; /* Ensures the scaling happens from top left corner */
       width: 400%; /* Increase width to compensate for the reduced scale */
