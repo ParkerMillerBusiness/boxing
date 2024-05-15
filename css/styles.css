@@ -90,7 +90,7 @@
       width: 100%;
   }
   .fight-bar-img {
-      max-width: 50px; /* Adjust image size on smaller screens */
+      max-width: 50px !important; /* Adjust image size on smaller screens */
       height: auto;
   }
   .fight-ers, .fight-vs, .fight-odds {
