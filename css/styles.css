@@ -79,40 +79,19 @@
   --bs-highlight-bg: #fff3cd;
 }
 
+/* Base CSS */
+.page-section {
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+/* Media Query for devices with max-width of 768px */
 @media (max-width: 768px) {
-  .fight-bar {
-      flex-direction: column;
-      align-items: center;
-  }
-  .fight-bar .d-flex {
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-  }
-  .fight-bar-img1 {
-    max-width: 100px !important; /* Adjust image size on smaller screens */
-    height: auto;
-    display: block!important; /* Ensures the image is treated as a block-level element */
-    margin-right: auto; /* Keeps the right margin flexible, pushing the image to the left */
-    margin-left: 20px !important; /* Sets the left margin to 0 to align it exactly to the left */
-}
-.fight-bar-img2 {
-  max-width: 100px !important; /* Adjust image size on smaller screens */
-  height: auto;
-  display: block!important; /* Ensures the image is treated as a block-level element */
-  margin-right: 20px !important; /* Keeps the right margin flexible, pushing the image to the left */
-  margin-left: auto; /* Sets the left margin to 0 to align it exactly to the left */
-}
-  .fight-ers, .fight-vs, .fight-odds {
-      text-align: center;
-      margin: 10px 0; /* Add spacing to separate elements vertically */
-  }
-  .number-above {
-      position: relative; /* Adjust positioning or font size */
-      font-size: 0.8rem; /* Smaller font size for numbers */
-  }
-  #fightDetails .col-md-4 {
-      font-size: 12px;
+  .page-section {
+      transform: scale(0.25);
+      transform-origin: top left; /* Ensures the scaling happens from top left corner */
+      width: 400%; /* Increase width to compensate for the reduced scale */
+      height: auto; /* Adjust height automatically */
+      overflow: visible; /* Ensures nothing is cut off */
   }
 }
 
