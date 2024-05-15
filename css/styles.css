@@ -94,6 +94,21 @@
       overflow: visible; /* Ensures nothing is cut off */
   }
 }
+/* Base CSS */
+#about {
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+/* Media Query for devices with max-width of 768px */
+@media (max-width: 768px) {
+  #about {
+      transform: scale(0.75);
+      transform-origin: top left; /* Ensures the scaling happens from top left corner */
+      width: 400%; /* Increase width to compensate for the reduced scale */
+      height: auto; /* Adjust height automatically */
+      overflow: visible; /* Ensures nothing is cut off */
+  }
+}
 
 .fight-bar-img1 {
   max-width: 250px; /* Adjust image size on larger screens */
