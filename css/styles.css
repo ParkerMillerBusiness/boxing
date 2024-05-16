@@ -128,11 +128,6 @@
     overflow: visible !important; /* Ensures nothing is cut off */
     
 }
-.container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px; /* This controls spacing between children effectively */
-}
   #prelims {
     transform: scale(0.25);
     transform-origin: top left; /* Ensures the scaling happens from top left corner */
