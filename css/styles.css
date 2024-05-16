@@ -120,30 +120,36 @@
 
 /* Media Query for devices with max-width of 768px */
 @media (max-width: 768px) {
-  #about, #main-card, #prelims, #site-footer {
-    margin-bottom: 20px; /* Reduce the bottom margin if it's too large */
-    padding: 10px 0; /* Adjust padding to be smaller */
+  #main-card {
+    transform: scale(0.25) !important;
+    transform-origin: top left !important; /* Ensures the scaling happens from top left corner */
+    width: 400% !important; /* Increase width to compensate for the reduced scale */
+    height: auto !important; /* Adjust height automatically */
+    overflow: visible !important; /* Ensures nothing is cut off */
+    
+}
+  #prelims {
     transform: scale(0.25);
-    transform-origin: top left;
-    width: 400%;
-    height: auto;
-    overflow: visible;
-  }
-
-  #about {
-    transform: scale(0.3);
-    width: 333.33%;
-  }
-
-  /* Remove any additional bottom padding or margins that might be adding extra space */
-  .page-section {
-    padding-bottom: 0;
-    margin-bottom: 0;
-  }
-
-  .container {
-    padding: 0; /* Reducing padding inside containers can also help */
-  }
+    transform-origin: top left; /* Ensures the scaling happens from top left corner */
+    width: 400%; /* Increase width to compensate for the reduced scale */
+    height: auto; /* Adjust height automatically */
+    overflow: visible; /* Ensures nothing is cut off */
+    
+}
+  #site-footer {
+    transform: scale(0.25);
+    transform-origin: top left; /* Ensures the scaling happens from top left corner */
+    width: 400%; /* Increase width to compensate for the reduced scale */
+    height: auto; /* Adjust height automatically */
+    overflow: visible; /* Ensures nothing is cut off */
+}
+#about {
+  transform: scale(0.3);
+  transform-origin: top left; /* Ensures the scaling happens from top left corner */
+  width: 333.33%; /* Increase width to compensate for the reduced scale */
+  height: auto; /* Adjust height automatically */
+  overflow: visible; /* Ensures nothing is cut off */
+}
 }
 @media (max-width: 812px) {
   #main-card {
