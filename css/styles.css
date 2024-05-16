@@ -79,18 +79,6 @@
   --bs-highlight-bg: #fff3cd;
 }
 
-.bg-banner {
-  background-image: url('assets/img/portfolio/cabin.png'); /* Placeholder image */
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-}
-
 .about-bg {
   background-image: url('assets/img/portfolio/cabin.png') !important;
   background-size: cover !important;
