@@ -79,25 +79,43 @@
   --bs-highlight-bg: #fff3cd;
 }
 
+.bg-banner {
+  background-image: url('assets/img/portfolio/cabin.png'); /* Placeholder image */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
 .about-bg {
-  background-image: url('assets/img/portfolio/cabin.png')!important;
-  background-size: cover!important;
-  background-position: center!important;
-  background-repeat: no-repeat!important;
-  position: relative!important;
-  z-index: 1!important;
+  background-image: url('assets/img/portfolio/cabin.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  position: relative;
+  z-index: 1;
 }
 
 .about-bg::before {
-  content: ""!important;
-  position: absolute!important;
-  top: 0!important;
-  right: 0!important;
-  bottom: 0!important;
-  left: 0!important;
-  background-color: rgba(0, 0, 0, 0.5)!important; /* Adjust the opacity as needed */
-  z-index: -1!important;
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Optional: Add overlay */
+  z-index: 0;
 }
+
+.page-section {
+  position: relative;
+  z-index: 1;
+}
+
 /* Base CSS */
 #main-card {
   transition: transform 0.3s ease; /* Smooth transition for scaling */
@@ -8301,6 +8319,10 @@ textarea.form-control-lg {
 .bg-primary {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-secondary-rgb), var(--bs-bg-opacity));
+  background-image: url('assets/img/portfolio/cabin.png'); /* Add the background image */
+  background-size: cover; /* Ensure the image covers the entire background */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
 }
 
 .bg-secondary {
