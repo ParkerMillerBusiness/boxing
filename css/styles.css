@@ -78,31 +78,6 @@
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fff3cd;
 }
-
-#about {
-  background-image: url("Boxing/assets/img/portfolio/cabin.png") !important;
-  background-size: cover !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  position: relative !important;
-}
-
-#about::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.5) !important; /* Black overlay with 50% opacity */
-  z-index: 1 !important;
-}
-
-#about .container {
-  position: relative !important;
-  z-index: 2 !important; /* Ensure the text and contents are above the overlay */
-}
-
 /* Base CSS */
 #main-card {
   transition: transform 0.3s ease; /* Smooth transition for scaling */
@@ -8308,8 +8283,27 @@ textarea.form-control-lg {
 }
 
 .bg-primary1 {
-  --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-secondary-rgb), var(--bs-bg-opacity));
+  position: relative !important;
+  background-image: url("assets/img/portfolio/cabin.png") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+.bg-primary1::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  background-color: rgba(var(--bs-secondary-rgb), 1) !important; /* Adjust opacity if needed */
+  z-index: 1 !important;
+}
+
+.bg-primary1 .container {
+  position: relative !important;
+  z-index: 2 !important; /* Ensure the text and contents are above the overlay */
 }
 
 .bg-secondary {
