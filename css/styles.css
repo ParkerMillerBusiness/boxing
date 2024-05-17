@@ -101,37 +101,75 @@
 
 /* Media Query for devices with max-width of 768px */
 @media (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
   #main-card {
+    flex: 1;
     transform: scale(0.25) !important;
     transform-origin: top left !important; /* Ensures the scaling happens from top left corner */
     width: 400% !important; /* Increase width to compensate for the reduced scale */
     height: auto !important; /* Adjust height automatically */
     overflow: visible !important; /* Ensures nothing is cut off */
+    margin: 0 !important;
+    padding: 0 !important;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    vertical-align: top;
     
 }
   #prelims {
+    flex: 1;
     transform: scale(0.25);
     transform-origin: top left; /* Ensures the scaling happens from top left corner */
     width: 400%; /* Increase width to compensate for the reduced scale */
     height: auto; /* Adjust height automatically */
     overflow: visible; /* Ensures nothing is cut off */
+    margin: 0 !important;
+    padding: 0 !important;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    vertical-align: top;
     
 }
   #site-footer {
+    flex: 1;
     transform: scale(0.25);
     transform-origin: top left; /* Ensures the scaling happens from top left corner */
     width: 400%; /* Increase width to compensate for the reduced scale */
     height: auto; /* Adjust height automatically */
     overflow: visible; /* Ensures nothing is cut off */
+    margin: 0 !important;
+    padding: 0 !important;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    vertical-align: top;
 }
 #about {
+  flex: 1;
   transform: scale(0.3);
   transform-origin: top left; /* Ensures the scaling happens from top left corner */
   width: 333.33%; /* Increase width to compensate for the reduced scale */
   height: auto; /* Adjust height automatically */
   overflow: visible; /* Ensures nothing is cut off */
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  vertical-align: top;
 }
 }
+
 @media (max-width: 812px) {
   #main-card {
       transform: scale(1);
@@ -805,11 +843,8 @@ progress {
     max-width: 540px;
   }
 }
-@media (min-width: 768px) {
-  .container-md, .container-sm, .container {
-    max-width: 720px;
-  }
-}
+
+
 @media (min-width: 992px) {
   .container-lg, .container-md, .container-sm, .container {
     max-width: 960px;
