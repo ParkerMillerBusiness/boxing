@@ -79,29 +79,9 @@
   --bs-highlight-bg: #fff3cd;
 }
 
-.about-bg {
-  background-image: url('assets/img/portfolio/cabin.png') !important;
-  background-size: cover !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  position: relative;
-  z-index: 1;
-}
-
-.about-bg::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Optional: Add overlay */
-  z-index: 0;
-}
-
-.page-section {
-  position: relative;
-  z-index: 1;
+.stretched-image {
+  width: auto;
+  height: 50%;
 }
 
 /* Base CSS */
