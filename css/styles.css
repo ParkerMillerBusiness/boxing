@@ -78,6 +78,12 @@
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fff3cd;
 }
+.raised-text {
+  transform: translateY(-45px); /* Adjust the value as needed */
+}
+.lowered-text2 {
+  transform: translateY(25px); /* Adjust the value as needed */
+}
 .lowered-text {
   transform: translateY(0px); /* Adjust the value as needed */
 }
