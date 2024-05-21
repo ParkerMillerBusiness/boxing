@@ -80,7 +80,8 @@
 }
 
 .padding-top-extra {
-  padding-top: 150px; /* Adjust this value based on the desired space */
+  padding-top: 100px;
+  padding-left: 300px; /* Adjust this value based on the desired space */
 }
 .padding-top-extra2 {
   padding-top: 0px; /* Adjust this value based on the desired space */
