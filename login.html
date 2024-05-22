@@ -111,6 +111,7 @@
             if (data.password === enteredPassword) {
                 localStorage.setItem('username', enteredUsername);
                 alert("Login Successful!");
+                window.location.href = 'http://ParkerMillerBusiness.github.io/boxing/index.html'; // Redirect on success
             } else {
                 alert("Incorrect password. Please try again.");
             }
