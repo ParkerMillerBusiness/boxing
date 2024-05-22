@@ -75,12 +75,6 @@
 </div>
 </div>
 
-<div class="container mt-5 pt-5"> <!-- Adjust margins and padding as needed for layout -->
-    <h2>User Information</h2>
-    <div id="userInfo" class="p-3 border rounded">
-        Loading user information...
-    </div>
-</div>
 
 
     <script type="module">
@@ -137,6 +131,20 @@
             })
         }
 
+        document.addEventListener('DOMContentLoaded', function() {
+    var username = localStorage.getItem('username');
+    if (username) {
+        console.log('Username:', username);
+        // Create a new nav item for the user, using the username as the link text
+        var navItem = document.createElement('li');
+        navItem.className = 'nav-item mx-0 mx-lg-1';
+        navItem.innerHTML = `<a class="nav-link py-3 px-0 px-lg-3 rounded" href="http://ParkerMillerBusiness.github.io/boxing/user.html">${username} INFO</a>`;
+        // Append it to the existing list in the navbar
+        document.querySelector('#navbarResponsive .navbar-nav').appendChild(navItem);
+    } else {
+        console.log('No username found in localStorage.');
+    }
+});
 
     </script>
 </body>

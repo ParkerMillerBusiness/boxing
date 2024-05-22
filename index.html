@@ -181,15 +181,20 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                var username = localStorage.getItem('username');
-                if (username) {
-                    console.log('Username:', username);
-                    // You can now use the username variable here to modify the DOM or perform other actions
-                } else {
-                    console.log('No username found in localStorage.');
-                }
-            });
+document.addEventListener('DOMContentLoaded', function() {
+    var username = localStorage.getItem('username');
+    if (username) {
+        console.log('Username:', username);
+        // Create a new nav item for the user, using the username as the link text
+        var navItem = document.createElement('li');
+        navItem.className = 'nav-item mx-0 mx-lg-1';
+        navItem.innerHTML = `<a class="nav-link py-3 px-0 px-lg-3 rounded" href="http://ParkerMillerBusiness.github.io/boxing/user.html">${username} INFO</a>`;
+        // Append it to the existing list in the navbar
+        document.querySelector('#navbarResponsive .navbar-nav').appendChild(navItem);
+    } else {
+        console.log('No username found in localStorage.');
+    }
+});
         </script>
     </body>
 </html>
