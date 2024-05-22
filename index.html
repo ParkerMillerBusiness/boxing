@@ -181,7 +181,7 @@
         <!-- Core theme JS-->
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-                var username = localStorage.getItem('username').value;
+                var username = localStorage.getItem('username');
                 if (username) {
                     console.log('Username:', username);
                     // You can now use the username variable here to modify the DOM or perform other actions
