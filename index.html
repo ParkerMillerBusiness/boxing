@@ -179,7 +179,16 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var username = localStorage.getItem('username');
+                if (username) {
+                    console.log('Username:', username);
+                    // You can now use the username variable here to modify the DOM or perform other actions
+                } else {
+                    console.log('No username found in localStorage.');
+                }
+            });
+        </script>
     </body>
 </html>
