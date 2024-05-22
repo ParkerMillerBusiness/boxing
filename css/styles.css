@@ -86,6 +86,9 @@
 .padding-top-extra2 {
   padding-top: 0px; /* Adjust this value based on the desired space */
 }
+.padding-top-extra3 {
+  padding-top: 100px; /* Adjust this value based on the desired space */
+}
 .raised-text {
   transform: translateY(-45px); /* Adjust the value as needed */
 }

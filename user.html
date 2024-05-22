@@ -51,7 +51,7 @@
 			</nav>
 
 			<div class="container mt-5 pt-5"> <!-- Adjust margins and padding as needed for layout -->
-				<h2>User Information</h2>
+				<h2 class="padding-top-extra3">USER INFORMATION</h2>
 				<div id="userInfo" class="p-3 border rounded">
 					Loading user information...
 				</div>
@@ -83,22 +83,44 @@
 
 
         // Function to retrieve data
-        function get1() {
-            const username = localStorage.getItem('username');
-            const userRef = ref(db, '/user/' + username);
-            onValue(userRef, (snapshot) => {
-                const data = snapshot.val();
-            })
+		function get1() {
+    const username = localStorage.getItem('username');
+    if (!username) {
+        document.getElementById('userInfo').innerHTML = '<p class="text-danger">No user is currently logged in.</p>';
+        return;
+    }
+
+    const userRef = ref(db, '/user/' + username);
+    onValue(userRef, (snapshot) => {
+        const data = snapshot.val();
+        if (data) {
+            const userInfoHtml = `
+                <p><strong>Username:</strong> ${username}</p>
+                <p><strong>Email:</strong> ${data.email || 'No email registered'}</p>
+                <p><strong>Password:</strong> ${data.password || 'No password registered'}</p>
+				<p><strong>Picks:</strong> ${data.picks || 'No picks registered'}</p>
+				<p><strong>Score:</strong> ${data.score || 'No score registered'}</p>
+            `;
+            document.getElementById('userInfo').innerHTML = userInfoHtml;
+        } else {
+            document.getElementById('userInfo').innerHTML = '<p class="text-danger">User data not found.</p>';
         }
+    }, (error) => {
+        console.error('Failed to fetch user data:', error);
+        document.getElementById('userInfo').innerHTML = '<p class="text-danger">Error loading user data.</p>';
+    });
+}
 
 
             document.addEventListener('DOMContentLoaded', function() {
                 var username = localStorage.getItem('username');
                 if (username) {
                     console.log('Username:', username);
+					get1();
                     // You can now use the username variable here to modify the DOM or perform other actions
                 } else {
                     console.log('No username found in localStorage.');
+					document.getElementById('userInfo').innerHTML = '<p class="text-danger">Please log in to view account information.</p>';
                 }
             });
 
