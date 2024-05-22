@@ -52,8 +52,8 @@
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#main-card">Main Card</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#prelims">Prelims</a></li>
 						<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="http://ParkerMillerBusiness.github.io/boxing">Other Events</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="http://ParkerMillerBusiness.github.io/boxing/register.html">Register</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="http://ParkerMillerBusiness.github.io/boxing/login.html">Sign in</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" id="navRegister" href="http://ParkerMillerBusiness.github.io/boxing/register.html">Register</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" id="navSignIn" href="http://ParkerMillerBusiness.github.io/boxing/login.html">Sign in</a></li>
                         <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#resume">Experience</a></li> -->
                         <!-- Hello-->
                     </ul>
@@ -768,11 +768,15 @@ document.addEventListener('DOMContentLoaded', function() {
     var username = localStorage.getItem('username');
     if (username) {
         console.log('Username:', username);
+
+        // Hide the REGISTER and SIGN IN navigation items
+        document.getElementById('navRegister').style.display = 'none';
+        document.getElementById('navSignIn').style.display = 'none';
+
         // Create a new nav item for the user, using the username as the link text
         var navItem = document.createElement('li');
         navItem.className = 'nav-item mx-0 mx-lg-1';
-        navItem.innerHTML = `<a class="nav-link py-3 px-0 px-lg-3 rounded" href="http://ParkerMillerBusiness.github.io/boxing/user.html">${username} INFO</a>`;
-        // Append it to the existing list in the navbar
+        navItem.innerHTML = `<a class="nav-link py-3 px-0 px-lg-3 rounded" href="http://ParkerMillerBusiness.github.io/boxing/user.html">${username}</a>`;
         document.querySelector('#navbarResponsive .navbar-nav').appendChild(navItem);
     } else {
         console.log('No username found in localStorage.');
