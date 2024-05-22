@@ -43,6 +43,7 @@
 					<div class="collapse navbar-collapse" id="navbarResponsive">
 						<ul class="navbar-nav ms-auto">
 							<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="http://ParkerMillerBusiness.github.io/boxing/index.html">MAIN PAGE</a></li>
+                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="http://ParkerMillerBusiness.github.io/boxing/login.html">Sign in</a></li>
 							<!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#resume">Experience</a></li> -->
 						</ul>
 					</div>
@@ -113,15 +114,15 @@
               });
               localStorage.setItem('username', document.getElementById("username").value);
                 alert("Login Sucessfull  !");
-                //window.location.href = "http://ParkerMillerBusiness.github.io/boxing";
             })
 
         // Function to retrieve data
         function get1() {
-            const userRef = ref(db, '/user/lucky');
+            const username = localStorage.getItem('username');
+            const userRef = ref(db, '/user/' + username);
             onValue(userRef, (snapshot) => {
                 const data = snapshot.val();
-                alert(data.Password);
+                alert(data.password);
             })
         }
 

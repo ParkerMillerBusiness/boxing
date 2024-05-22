@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="All of the fights on Misfits 15" />
         <meta name="author" content="Bob" />
-        <title>LOGIN BOBSFIGHTNEWS</title>
+        <title>REGISTER BOBSFIGHTNEWS</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/boxing_gloves-removebg-preview.png" />
         <!-- Font Awesome icons (free version)-->
@@ -13,14 +13,6 @@
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-        <script type="application/ld+json">
-            {
-              "@context": "http://schema.org",
-              "@type": "WebSite",
-              "name": "Bobs Fight News",
-              "url": "http://BobsFightNews.github.io"
-            }
-            </script>
         <!-- Google Analytics Tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4F873DFQPQ"></script>
 <script>
@@ -38,52 +30,99 @@
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9394285765069873"
         crossorigin="anonymous"></script>
     </head>
+    <body>
+		<body>
+			<!-- Navigation-->
+			<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+				<div class="container">
+					<a class="navbar-brand" href="#page-top">Sign in BobsFightNews</a>
+					<button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+						Menu
+						<i class="fas fa-bars"></i>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarResponsive">
+						<ul class="navbar-nav ms-auto">
+							<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="http://ParkerMillerBusiness.github.io/boxing/index.html">MAIN PAGE</a></li>
+                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="http://ParkerMillerBusiness.github.io/boxing/register.html">Register</a></li>
+							<!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#resume">Experience</a></li> -->
+						</ul>
+					</div>
+				</div>
+			</nav>
 
-
-<body>
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand" href="#page-top">BobsFightNews Login Page</a>
-                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="http://ParkerMillerBusiness.github.io/boxing/index.html">MAIN PAGE</a></li>
-                        <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#resume">Experience</a></li> -->
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-<div class="container padding-top-extra">
-    <div class="row justify-content-center mt-5">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">LOGIN</div>
-                <div class="card-body">
-                    <form id="loginForm">
-                        <div class="mb-3">
-                            <label for="username" class="form-label">Username</label>
-                            <input type="text" class="form-control" id="username" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Log In</button>
-                    </form>
-                </div>
+        <div class="container padding-top-extra">
+			<div class="row justify-content-center mt-5">
+			<div class="col-md-6">
+            <div class="card-header">
+			<div class="card">
+                <div class="card-header">SIGN IN</div>
+				<div class="card-body">
+                <form>
+                    <div class="mb-3">
+						<label for="username" class="form-label">USERNAME OR EMAIL</label>
+                        <input type="text" value="" class="form-control" id="username" required>
+                    </div>
+                    <div class="mb-3">
+						<label for="password" class="form-label">PASSWORD</label>
+                        <input type="text" value="" class="form-control" id="phone" required>
+                    </div>
+                    <input type="submit" value="Submit" class="btn btn-primary" id="submit">
+                </form>
             </div>
         </div>
-    </div>
+	</div>
 </div>
-<script src="login.js"></script>
+</div>
+</div>
+    <!-- Button to Trigger Data Retrieval -->
+    <button id="getDataButton">Get Data</button>
 
+    <script type="module">
+        // Import Firebase modules
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+        import { getDatabase, ref, set, get, child, onValue } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+  
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBAwwddAnM5DhrHNmFYSjV2GMDQddHDFoU",
+            authDomain: "bobsfightnews.firebaseapp.com",
+            databaseURL: "https://bobsfightnews-default-rtdb.firebaseio.com",
+            projectId: "bobsfightnews",
+            storageBucket: "bobsfightnews.appspot.com",
+            messagingSenderId: "1069009978943",
+            appId: "1:1069009978943:web:362f9a0911eff241065a8a",
+            measurementId: "G-505FSMGF82"
+        };
 
-</section>
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
 
+             document.getElementById("submit").addEventListener('click', function(e){
+              e.preventDefault();
+              set(ref(db, 'user/' + document.getElementById("username").value),
+              {
+   
+                username: document.getElementById("username").value,
+                email: document.getElementById("email").value,
+                password: document.getElementById("phone").value
+
+              });
+              localStorage.setItem('username', document.getElementById("username").value);
+                alert("Login Sucessfull  !");
+            })
+
+        // Function to retrieve data
+        function get1() {
+            const userRef = ref(db, '/user/lucky');
+            onValue(userRef, (snapshot) => {
+                const data = snapshot.val();
+                alert(data.Password);
+            })
+        }
+
+        // Attach event listener to button
+        document.getElementById("getDataButton").addEventListener('click', get1);
+    </script>
 </body>
 </html>
