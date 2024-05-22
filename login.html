@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="All of the fights on Misfits 15" />
         <meta name="author" content="Bob" />
-        <title>REGISTER BOBSFIGHTNEWS</title>
+        <title>LOGIN BOBSFIGHTNEWS</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/boxing_gloves-removebg-preview.png" />
         <!-- Font Awesome icons (free version)-->
@@ -59,7 +59,7 @@
 				<div class="card-body">
                 <form>
                     <div class="mb-3">
-						<label for="username" class="form-label">USERNAME OR EMAIL</label>
+						<label for="username" class="form-label">USERNAME</label>
                         <input type="text" value="" class="form-control" id="username" required>
                     </div>
                     <div class="mb-3">
@@ -74,8 +74,7 @@
 </div>
 </div>
 </div>
-    <!-- Button to Trigger Data Retrieval -->
-    <button id="getDataButton">Get Data</button>
+
 
     <script type="module">
         // Import Firebase modules
@@ -98,31 +97,40 @@
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
 
-             document.getElementById("submit").addEventListener('click', function(e){
-              e.preventDefault();
-              set(ref(db, 'user/' + document.getElementById("username").value),
-              {
-   
-                username: document.getElementById("username").value,
-                email: document.getElementById("email").value,
-                password: document.getElementById("phone").value
+        document.getElementById("submit").addEventListener('click', function(e){
+    e.preventDefault();
+    const enteredUsername = document.getElementById("username").value;
+    const enteredPassword = document.getElementById("phone").value;  // Assuming this is the password input
+    const userRef = ref(db, '/user/' + enteredUsername);
 
-              });
-              localStorage.setItem('username', document.getElementById("username").value);
-                alert("Login Sucessfull  !");
-            })
+    get(userRef).then((snapshot) => {
+        if (snapshot.exists()) {
+            const data = snapshot.val();
+            if (data.password === enteredPassword) {
+                localStorage.setItem('username', enteredUsername);
+                alert("Login Successful!");
+            } else {
+                alert("Incorrect password. Please try again.");
+            }
+        } else {
+            alert("User does not exist.");
+        }
+    }).catch((error) => {
+        console.error(error);
+        alert("Failed to retrieve data. Please try again.");
+    });
+});
 
         // Function to retrieve data
         function get1() {
-            const userRef = ref(db, '/user/lucky');
+            const username = localStorage.getItem('username');
+            const userRef = ref(db, '/user/' + username);
             onValue(userRef, (snapshot) => {
                 const data = snapshot.val();
-                alert(data.Password);
             })
         }
 
-        // Attach event listener to button
-        document.getElementById("getDataButton").addEventListener('click', get1);
+
     </script>
 </body>
 </html>
