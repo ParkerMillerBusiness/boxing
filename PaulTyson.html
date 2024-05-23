@@ -856,7 +856,7 @@
             result += i % 2 !== 0 ? 'L' : 'R';
         }
     }
-    if (result.length !== 8) {
+    if (result.length !== 4) {
         console.error("Please select a fighter for every fight on the card");
         alert("Please select a fighter for every fight on the card");
         return "Error";
@@ -866,7 +866,7 @@
         this.disabled = true;
 
         // Firebase: Write the result to the database
-        set(ref(db, '/user/' + username + '/misfits15'), result)
+        set(ref(db, '/user/' + username + '/paultyson'), result)
             .then(() => {
                 console.log("Data saved successfully!");
             })
