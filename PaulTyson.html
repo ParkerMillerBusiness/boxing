@@ -869,6 +869,8 @@
         set(ref(db, '/user/' + username + '/paultyson'), result)
             .then(() => {
                 console.log("Data saved successfully!");
+                // Redirect to another page after success
+                window.location.href = 'https://parkermillerbusiness.github.io/boxing/user.html';
             })
             .catch((error) => {
                 console.error("Failed to write data:", error);
