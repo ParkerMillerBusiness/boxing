@@ -998,8 +998,14 @@ document.getElementById('submit').addEventListener('click', function() {
             }
         }
     }
-    console.log(result); // Output the result or handle it as needed
-    return result;
+    if (result.length !== 8) {
+        console.error("Please select a fighter for every fight on the card");
+        alert("Please select a fighter for every fight on the card");
+        return "Error";
+    } else {
+        console.log(result); // Output the result or handle it as needed
+        return result;
+    }
 });
         </script>
     </body>
