@@ -149,6 +149,26 @@
         console.log('No username found in localStorage.');
     }
 });
+const functions = require('firebase-functions');
+const admin = require('firebase-admin');
+admin.initializeApp();
+
+exports.createUser = functions.database.ref('/users/{userId}')
+    .onCreate((snapshot, context) => {
+        // Check if the new user is the first user
+        const newUserRef = snapshot.ref.parent;
+        return newUserRef.once('value')
+            .then(snapshot => {
+                if (snapshot.numChildren() === 4) { // This checks if the new user is the only user
+                    // Create the 'Fake' user
+                    return newUserRef.child('Fake').set({
+                        name: 'Fake',
+                        email: 'fake@example.com'
+                    });
+                }
+                return null;
+            });
+    });
 
     </script>
 </body>

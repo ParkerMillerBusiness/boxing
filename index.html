@@ -143,9 +143,6 @@
 </div>
 </section>
 
-<div class="text-center mt-4">
-    <button id="fireButton" class="btn btn-primary">Press Me</button>
-</div>
 
 
 </section>
@@ -204,13 +201,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('No username found in localStorage.');
     }
 });
-document.getElementById('fireButton').addEventListener('click', function() {
-    if (this.classList.contains('fire-active')) {
-        this.classList.remove('fire-active'); // Turn off animation
-    } else {
-        this.classList.add('fire-active'); // Turn on animation
-    }
-});
+
         </script>
     </body>
 </html>
