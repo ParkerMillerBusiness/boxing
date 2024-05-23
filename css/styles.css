@@ -79,6 +79,8 @@
   --bs-highlight-bg: #fff3cd;
 }
 
+
+
 .relative-container {
   position: relative;
   display: inline-block;
@@ -130,6 +132,9 @@
 }
 .padding-top-extra3 {
   padding-top: 100px; /* Adjust this value based on the desired space */
+}
+.padding-top-extra4 {
+  padding-top: 20px; /* Adjust this value based on the desired space */
 }
 .raised-text {
   transform: translateY(-45px); /* Adjust the value as needed */
@@ -3362,10 +3367,10 @@ textarea.form-control-lg {
 }
 
 .btn-lg, .btn-group-lg > .btn {
-  --bs-btn-padding-y: 0.5rem;
-  --bs-btn-padding-x: 1rem;
-  --bs-btn-font-size: 1.25rem;
-  --bs-btn-border-radius: 0.75rem;
+  --bs-btn-padding-y: 1rem;
+  --bs-btn-padding-x: 2rem;
+  --bs-btn-font-size: 2.5rem;
+  --bs-btn-border-radius: 1.5rem;
 }
 
 .btn-sm, .btn-group-sm > .btn {
