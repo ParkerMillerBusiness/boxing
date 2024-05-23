@@ -816,6 +816,28 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
         <script>
+                    // Import Firebase modules
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+        import { getDatabase, ref, set, get, child, onValue } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+  
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBAwwddAnM5DhrHNmFYSjV2GMDQddHDFoU",
+            authDomain: "bobsfightnews.firebaseapp.com",
+            databaseURL: "https://bobsfightnews-default-rtdb.firebaseio.com",
+            projectId: "bobsfightnews",
+            storageBucket: "bobsfightnews.appspot.com",
+            messagingSenderId: "1069009978943",
+            appId: "1:1069009978943:web:362f9a0911eff241065a8a",
+            measurementId: "G-505FSMGF82"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+
+        
 document.addEventListener('DOMContentLoaded', function() {
     var username = localStorage.getItem('username');
     if (username) {
@@ -1013,6 +1035,14 @@ document.getElementById('submit').addEventListener('click', function() {
         console.log(result); // Output the result or handle it as needed
         this.innerHTML = 'Thanks for submitting';  // Change the button text to "Thanks for submitting"
         this.disabled = true;  // Disable the button to prevent further clicks
+                // Firebase: Write the result to the database
+                set(ref(db, '/user/' + username + '/misfits15'), result)
+            .then(() => {
+                console.log("Data saved successfully!");
+            })
+            .catch((error) => {
+                console.error("Failed to write data:", error);
+            });
         return result;
     }
 });
