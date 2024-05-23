@@ -1011,6 +1011,8 @@ document.getElementById('submit').addEventListener('click', function() {
         return "Error";
     } else {
         console.log(result); // Output the result or handle it as needed
+        this.innerHTML = 'Thanks for submitting';  // Change the button text to "Thanks for submitting"
+        this.disabled = true;  // Disable the button to prevent further clicks
         return result;
     }
 });
