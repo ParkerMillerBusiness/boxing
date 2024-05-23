@@ -79,6 +79,48 @@
   --bs-highlight-bg: #fff3cd;
 }
 
+.relative-container {
+  position: relative;
+  display: inline-block;
+}
+
+.overlay-button {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #66000000; /* Change background color as needed */
+  color: #fff; /* Change text color as needed */
+  border: none;
+  padding: 66px 105px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+@keyframes fireAnimation {
+  0% {
+      box-shadow: 0 0 5px 2px rgba(255, 165, 0, 0.75),
+                  0 0 10px 4px rgba(255, 140, 0, 0.75),
+                  0 0 15px 6px rgba(255, 69, 0, 0.75);
+  }
+  50% {
+      box-shadow: 0 0 5px 3px rgba(255, 165, 0, 0.9),
+                  0 0 10px 5px rgba(255, 140, 0, 0.9),
+                  0 0 15px 7px rgba(255, 69, 0, 0.9);
+  }
+  100% {
+      box-shadow: 0 0 5px 2px rgba(255, 165, 0, 0.75),
+                  0 0 10px 4px rgba(255, 140, 0, 0.75),
+                  0 0 15px 6px rgba(255, 69, 0, 0.75);
+  }
+}
+
+.fire-active {
+  animation: fireAnimation 1s infinite;
+}
+
+
+
 .padding-top-extra {
   padding-top: 100px;
   padding-left: 300px; /* Adjust this value based on the desired space */
