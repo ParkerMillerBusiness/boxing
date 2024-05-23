@@ -987,6 +987,13 @@ document.getElementById('firebutton16').addEventListener('click', function() {
     this.classList.toggle('fire-active');
 });
 document.getElementById('submit').addEventListener('click', function() {
+    var username = localStorage.getItem('username');
+    if (!username) {
+        console.error('Please sign in before making picks');
+        alert('Please sign in before making picks');
+        return;  // Return early to prevent further execution
+    }
+
     var result = "";
     for (var i = 1; i <= 16; i++) {
         var button = document.getElementById('firebutton' + i);
