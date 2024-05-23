@@ -893,12 +893,29 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 document.getElementById('firebutton1').addEventListener('click', function() {
     var otherButton = document.getElementById('firebutton2');
+
+
     // Remove 'fire-active' class from the other button if it's active
     if (otherButton.classList.contains('fire-active')) {
         otherButton.classList.remove('fire-active');
     }
+
     // Toggle 'fire-active' class on this button
     this.classList.toggle('fire-active');
+    
+    var dropdown = document.getElementById('fightDetails2'); // Get the dropdown menu element
+    // Use setTimeout to delay the check of dropdown visibility
+    setTimeout(function() {
+        // Check if the dropdown menu is shown
+        var bsCollapse = new bootstrap.Collapse(dropdown, {
+            toggle: false // Prevent automatic toggling
+        });
+        if (dropdown.classList.contains('show')) {
+            bsCollapse.hide();
+        } else {
+            bsCollapse.show();
+        }
+    }, 5); // Delay of 5 milliseconds
 });
 
 document.getElementById('firebutton2').addEventListener('click', function() {
@@ -909,6 +926,19 @@ document.getElementById('firebutton2').addEventListener('click', function() {
     }
     // Toggle 'fire-active' class on this button
     this.classList.toggle('fire-active');
+    var dropdown = document.getElementById('fightDetails2'); // Get the dropdown menu element
+    // Use setTimeout to delay the check of dropdown visibility
+    setTimeout(function() {
+        // Check if the dropdown menu is shown
+        var bsCollapse = new bootstrap.Collapse(dropdown, {
+            toggle: false // Prevent automatic toggling
+        });
+        if (dropdown.classList.contains('show')) {
+            bsCollapse.hide();
+        } else {
+            bsCollapse.show();
+        }
+    }, 5); // Delay of 5 milliseconds
 });
 document.getElementById('firebutton3').addEventListener('click', function() {
     var otherButton = document.getElementById('firebutton4');
@@ -918,6 +948,19 @@ document.getElementById('firebutton3').addEventListener('click', function() {
     }
     // Toggle 'fire-active' class on this button
     this.classList.toggle('fire-active');
+    var dropdown = document.getElementById('fightDetails3'); // Get the dropdown menu element
+    // Use setTimeout to delay the check of dropdown visibility
+    setTimeout(function() {
+        // Check if the dropdown menu is shown
+        var bsCollapse = new bootstrap.Collapse(dropdown, {
+            toggle: false // Prevent automatic toggling
+        });
+        if (dropdown.classList.contains('show')) {
+            bsCollapse.hide();
+        } else {
+            bsCollapse.show();
+        }
+    }, 5); // Delay of 5 milliseconds
 });
 
 document.getElementById('firebutton4').addEventListener('click', function() {
@@ -928,6 +971,19 @@ document.getElementById('firebutton4').addEventListener('click', function() {
     }
     // Toggle 'fire-active' class on this button
     this.classList.toggle('fire-active');
+    var dropdown = document.getElementById('fightDetails3'); // Get the dropdown menu element
+    // Use setTimeout to delay the check of dropdown visibility
+    setTimeout(function() {
+        // Check if the dropdown menu is shown
+        var bsCollapse = new bootstrap.Collapse(dropdown, {
+            toggle: false // Prevent automatic toggling
+        });
+        if (dropdown.classList.contains('show')) {
+            bsCollapse.hide();
+        } else {
+            bsCollapse.show();
+        }
+    }, 5); // Delay of 5 milliseconds
 });
 document.getElementById('firebutton5').addEventListener('click', function() {
     var otherButton = document.getElementById('firebutton6');
@@ -937,6 +993,19 @@ document.getElementById('firebutton5').addEventListener('click', function() {
     }
     // Toggle 'fire-active' class on this button
     this.classList.toggle('fire-active');
+    var dropdown = document.getElementById('fightDetails4'); // Get the dropdown menu element
+    // Use setTimeout to delay the check of dropdown visibility
+    setTimeout(function() {
+        // Check if the dropdown menu is shown
+        var bsCollapse = new bootstrap.Collapse(dropdown, {
+            toggle: false // Prevent automatic toggling
+        });
+        if (dropdown.classList.contains('show')) {
+            bsCollapse.hide();
+        } else {
+            bsCollapse.show();
+        }
+    }, 5); // Delay of 5 milliseconds
 });
 
 document.getElementById('firebutton6').addEventListener('click', function() {
@@ -947,6 +1016,19 @@ document.getElementById('firebutton6').addEventListener('click', function() {
     }
     // Toggle 'fire-active' class on this button
     this.classList.toggle('fire-active');
+    var dropdown = document.getElementById('fightDetails4'); // Get the dropdown menu element
+    // Use setTimeout to delay the check of dropdown visibility
+    setTimeout(function() {
+        // Check if the dropdown menu is shown
+        var bsCollapse = new bootstrap.Collapse(dropdown, {
+            toggle: false // Prevent automatic toggling
+        });
+        if (dropdown.classList.contains('show')) {
+            bsCollapse.hide();
+        } else {
+            bsCollapse.show();
+        }
+    }, 5); // Delay of 5 milliseconds
 });
 document.getElementById('firebutton7').addEventListener('click', function() {
     var otherButton = document.getElementById('firebutton8');
@@ -956,6 +1038,19 @@ document.getElementById('firebutton7').addEventListener('click', function() {
     }
     // Toggle 'fire-active' class on this button
     this.classList.toggle('fire-active');
+    var dropdown = document.getElementById('fightDetails5'); // Get the dropdown menu element
+    // Use setTimeout to delay the check of dropdown visibility
+    setTimeout(function() {
+        // Check if the dropdown menu is shown
+        var bsCollapse = new bootstrap.Collapse(dropdown, {
+            toggle: false // Prevent automatic toggling
+        });
+        if (dropdown.classList.contains('show')) {
+            bsCollapse.hide();
+        } else {
+            bsCollapse.show();
+        }
+    }, 5); // Delay of 5 milliseconds
 });
 
 document.getElementById('firebutton8').addEventListener('click', function() {
@@ -966,6 +1061,19 @@ document.getElementById('firebutton8').addEventListener('click', function() {
     }
     // Toggle 'fire-active' class on this button
     this.classList.toggle('fire-active');
+    var dropdown = document.getElementById('fightDetails5'); // Get the dropdown menu element
+    // Use setTimeout to delay the check of dropdown visibility
+    setTimeout(function() {
+        // Check if the dropdown menu is shown
+        var bsCollapse = new bootstrap.Collapse(dropdown, {
+            toggle: false // Prevent automatic toggling
+        });
+        if (dropdown.classList.contains('show')) {
+            bsCollapse.hide();
+        } else {
+            bsCollapse.show();
+        }
+    }, 5); // Delay of 5 milliseconds
 });
 document.getElementById('firebutton9').addEventListener('click', function() {
     var otherButton = document.getElementById('firebutton10');
@@ -975,6 +1083,19 @@ document.getElementById('firebutton9').addEventListener('click', function() {
     }
     // Toggle 'fire-active' class on this button
     this.classList.toggle('fire-active');
+    var dropdown = document.getElementById('fightDetails6'); // Get the dropdown menu element
+    // Use setTimeout to delay the check of dropdown visibility
+    setTimeout(function() {
+        // Check if the dropdown menu is shown
+        var bsCollapse = new bootstrap.Collapse(dropdown, {
+            toggle: false // Prevent automatic toggling
+        });
+        if (dropdown.classList.contains('show')) {
+            bsCollapse.hide();
+        } else {
+            bsCollapse.show();
+        }
+    }, 5); // Delay of 5 milliseconds
 });
 
 document.getElementById('firebutton10').addEventListener('click', function() {
@@ -985,6 +1106,19 @@ document.getElementById('firebutton10').addEventListener('click', function() {
     }
     // Toggle 'fire-active' class on this button
     this.classList.toggle('fire-active');
+    var dropdown = document.getElementById('fightDetails6'); // Get the dropdown menu element
+    // Use setTimeout to delay the check of dropdown visibility
+    setTimeout(function() {
+        // Check if the dropdown menu is shown
+        var bsCollapse = new bootstrap.Collapse(dropdown, {
+            toggle: false // Prevent automatic toggling
+        });
+        if (dropdown.classList.contains('show')) {
+            bsCollapse.hide();
+        } else {
+            bsCollapse.show();
+        }
+    }, 5); // Delay of 5 milliseconds
 });
 document.getElementById('firebutton11').addEventListener('click', function() {
     var otherButton = document.getElementById('firebutton12');
@@ -994,6 +1128,19 @@ document.getElementById('firebutton11').addEventListener('click', function() {
     }
     // Toggle 'fire-active' class on this button
     this.classList.toggle('fire-active');
+    var dropdown = document.getElementById('fightDetails7'); // Get the dropdown menu element
+    // Use setTimeout to delay the check of dropdown visibility
+    setTimeout(function() {
+        // Check if the dropdown menu is shown
+        var bsCollapse = new bootstrap.Collapse(dropdown, {
+            toggle: false // Prevent automatic toggling
+        });
+        if (dropdown.classList.contains('show')) {
+            bsCollapse.hide();
+        } else {
+            bsCollapse.show();
+        }
+    }, 5); // Delay of 5 milliseconds
 });
 
 document.getElementById('firebutton12').addEventListener('click', function() {
@@ -1004,6 +1151,19 @@ document.getElementById('firebutton12').addEventListener('click', function() {
     }
     // Toggle 'fire-active' class on this button
     this.classList.toggle('fire-active');
+    var dropdown = document.getElementById('fightDetails7'); // Get the dropdown menu element
+    // Use setTimeout to delay the check of dropdown visibility
+    setTimeout(function() {
+        // Check if the dropdown menu is shown
+        var bsCollapse = new bootstrap.Collapse(dropdown, {
+            toggle: false // Prevent automatic toggling
+        });
+        if (dropdown.classList.contains('show')) {
+            bsCollapse.hide();
+        } else {
+            bsCollapse.show();
+        }
+    }, 5); // Delay of 5 milliseconds
 });
 document.getElementById('firebutton13').addEventListener('click', function() {
     var otherButton = document.getElementById('firebutton14');
@@ -1013,6 +1173,19 @@ document.getElementById('firebutton13').addEventListener('click', function() {
     }
     // Toggle 'fire-active' class on this button
     this.classList.toggle('fire-active');
+    var dropdown = document.getElementById('fightDetails'); // Get the dropdown menu element
+    // Use setTimeout to delay the check of dropdown visibility
+    setTimeout(function() {
+        // Check if the dropdown menu is shown
+        var bsCollapse = new bootstrap.Collapse(dropdown, {
+            toggle: false // Prevent automatic toggling
+        });
+        if (dropdown.classList.contains('show')) {
+            bsCollapse.hide();
+        } else {
+            bsCollapse.show();
+        }
+    }, 5); // Delay of 5 milliseconds
 });
 
 document.getElementById('firebutton14').addEventListener('click', function() {
@@ -1023,6 +1196,19 @@ document.getElementById('firebutton14').addEventListener('click', function() {
     }
     // Toggle 'fire-active' class on this button
     this.classList.toggle('fire-active');
+    var dropdown = document.getElementById('fightDetails'); // Get the dropdown menu element
+    // Use setTimeout to delay the check of dropdown visibility
+    setTimeout(function() {
+        // Check if the dropdown menu is shown
+        var bsCollapse = new bootstrap.Collapse(dropdown, {
+            toggle: false // Prevent automatic toggling
+        });
+        if (dropdown.classList.contains('show')) {
+            bsCollapse.hide();
+        } else {
+            bsCollapse.show();
+        }
+    }, 5); // Delay of 5 milliseconds
 });
 document.getElementById('firebutton15').addEventListener('click', function() {
     var otherButton = document.getElementById('firebutton16');
@@ -1032,6 +1218,19 @@ document.getElementById('firebutton15').addEventListener('click', function() {
     }
     // Toggle 'fire-active' class on this button
     this.classList.toggle('fire-active');
+    var dropdown = document.getElementById('fightDetails8'); // Get the dropdown menu element
+    // Use setTimeout to delay the check of dropdown visibility
+    setTimeout(function() {
+        // Check if the dropdown menu is shown
+        var bsCollapse = new bootstrap.Collapse(dropdown, {
+            toggle: false // Prevent automatic toggling
+        });
+        if (dropdown.classList.contains('show')) {
+            bsCollapse.hide();
+        } else {
+            bsCollapse.show();
+        }
+    }, 5); // Delay of 5 milliseconds
 });
 
 document.getElementById('firebutton16').addEventListener('click', function() {
@@ -1042,7 +1241,38 @@ document.getElementById('firebutton16').addEventListener('click', function() {
     }
     // Toggle 'fire-active' class on this button
     this.classList.toggle('fire-active');
+    var dropdown = document.getElementById('fightDetails8'); // Get the dropdown menu element
+    // Use setTimeout to delay the check of dropdown visibility
+    setTimeout(function() {
+        // Check if the dropdown menu is shown
+        var bsCollapse = new bootstrap.Collapse(dropdown, {
+            toggle: false // Prevent automatic toggling
+        });
+        if (dropdown.classList.contains('show')) {
+            bsCollapse.hide();
+        } else {
+            bsCollapse.show();
+        }
+    }, 5); // Delay of 5 milliseconds
 });
+
+// Get the element you want to collapse or expand
+var myCollapseElement = document.getElementById('fightDetails2');
+
+// Initialize the collapse component
+var bsCollapse = new bootstrap.Collapse(myCollapseElement, {
+  toggle: false // Disable automatic handling
+});
+
+// Function to expand the collapse
+function expandCollapse() {
+  bsCollapse.show();
+}
+
+// Function to collapse the element
+function collapseElement() {
+  bsCollapse.hide();
+}
 
         </script>
     </body>
