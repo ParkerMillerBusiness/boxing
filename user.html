@@ -119,6 +119,17 @@ const userRef = ref(db, '/user/' + username);
 
                 userInfoHtml += `<p><strong>Misfits15 Picks:</strong> ${MisfitsPicks.length > 0 ? MisfitsPicks.join(', ') : 'No picks yet'}</p>`;
             }
+            if ('paultyson' in data) {
+                const PaulTysonPicks = []; // Initialize MisfitsPicks as an array
+                const PaulTyson = data.paultyson;
+                // Populate MisfitsPicks based on MF15 values
+                PaulTysonPicks.push(PaulTyson[0] === 'L' ? 'Paul' : 'Tyson');
+                PaulTysonPicks.push(PaulTyson[1] === 'L' ? 'Taylor' : 'Serrano');
+                PaulTysonPicks.push(PaulTyson[2] === 'L' ? 'Till' : 'Chavez Jr');
+                PaulTysonPicks.push(PaulTyson[3] === 'L' ? 'Sylve' : 'Schofield');
+
+                userInfoHtml += `<p><strong>Paul vs Tyson Picks:</strong> ${PaulTysonPicks.length > 0 ? PaulTysonPicks.join(', ') : 'No picks yet'}</p>`;
+            }
 
             document.getElementById('userInfo').innerHTML = userInfoHtml;
         } else {
