@@ -774,6 +774,8 @@
 </div>
 </div>
 </div>
+<button id="submit">Submit</button>
+
 
 </section>
         <!-- Footer-->
@@ -983,6 +985,21 @@ document.getElementById('firebutton16').addEventListener('click', function() {
     }
     // Toggle 'fire-active' class on this button
     this.classList.toggle('fire-active');
+});
+document.getElementById('submit').addEventListener('click', function() {
+    var result = "";
+    for (var i = 1; i <= 16; i++) {
+        var button = document.getElementById('firebutton' + i);
+        if (button.classList.contains('fire-active')) {
+            if (i % 2 !== 0) {  // Check if the button number is odd
+                result += 'L';
+            } else {
+                result += 'R';
+            }
+        }
+    }
+    console.log(result); // Output the result or handle it as needed
+    return result;
 });
         </script>
     </body>
