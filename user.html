@@ -130,6 +130,15 @@ const userRef = ref(db, '/user/' + username);
 
                 userInfoHtml += `<p><strong>Paul vs Tyson Picks:</strong> ${PaulTysonPicks.length > 0 ? PaulTysonPicks.join(', ') : 'No picks yet'}</p>`;
             }
+            if ('paultyson' in data || 'misfits15' in data) {
+    const PaulTyson = data.paultyson || [];
+    const MF15 = data.misfits15 || [];
+    const total = PaulTyson.length + MF15.length;
+
+    userInfoHtml += `<p><strong>Total Picks:</strong> ${total}</p>`;
+} else {
+    userInfoHtml += `<p><strong>Total Picks:</strong> No picks yet</p>`;
+}
 
             document.getElementById('userInfo').innerHTML = userInfoHtml;
         } else {
