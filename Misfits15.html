@@ -814,9 +814,65 @@
         </div>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script type="module">
+            // Import Firebase modules
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+            import { getDatabase, ref, set, get, child, onValue } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+      
+            // Firebase configuration
+            const firebaseConfig = {
+                apiKey: "AIzaSyBAwwddAnM5DhrHNmFYSjV2GMDQddHDFoU",
+                authDomain: "bobsfightnews.firebaseapp.com",
+                databaseURL: "https://bobsfightnews-default-rtdb.firebaseio.com",
+                projectId: "bobsfightnews",
+                storageBucket: "bobsfightnews.appspot.com",
+                messagingSenderId: "1069009978943",
+                appId: "1:1069009978943:web:362f9a0911eff241065a8a",
+                measurementId: "G-505FSMGF82"
+            };
+    
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const db = getDatabase(app);
 
+            document.getElementById('submit').addEventListener('click', function() {
+    var username = localStorage.getItem('username');
+    if (!username) {
+        console.error('Please sign in before making picks');
+        alert('Please sign in before making picks');
+        return;  // Return early to prevent further execution
+    }
+
+    var result = "";
+    for (var i = 1; i <= 16; i++) {
+        var button = document.getElementById('firebutton' + i);
+        if (button.classList.contains('fire-active')) {
+            result += i % 2 !== 0 ? 'L' : 'R';
+        }
+    }
+    if (result.length !== 8) {
+        console.error("Please select a fighter for every fight on the card");
+        alert("Please select a fighter for every fight on the card");
+        return "Error";
+    } else {
+        console.log(result);
+        this.innerHTML = 'Thanks for submitting';
+        this.disabled = true;
+
+        // Firebase: Write the result to the database
+        set(ref(db, '/user/' + username + '/misfits15'), result)
+            .then(() => {
+                console.log("Data saved successfully!");
+            })
+            .catch((error) => {
+                console.error("Failed to write data:", error);
+            });
+
+        return result;
+    }
+});
+            </script>
         <script>
-            
 document.addEventListener('DOMContentLoaded', function() {
     var username = localStorage.getItem('username');
     if (username) {
@@ -987,36 +1043,7 @@ document.getElementById('firebutton16').addEventListener('click', function() {
     // Toggle 'fire-active' class on this button
     this.classList.toggle('fire-active');
 });
-document.getElementById('submit').addEventListener('click', function() {
-    var username = localStorage.getItem('username');
-    if (!username) {
-        console.error('Please sign in before making picks');
-        alert('Please sign in before making picks');
-        return;  // Return early to prevent further execution
-    }
 
-    var result = "";
-    for (var i = 1; i <= 16; i++) {
-        var button = document.getElementById('firebutton' + i);
-        if (button.classList.contains('fire-active')) {
-            if (i % 2 !== 0) {  // Check if the button number is odd
-                result += 'L';
-            } else {
-                result += 'R';
-            }
-        }
-    }
-    if (result.length !== 8) {
-        console.error("Please select a fighter for every fight on the card");
-        alert("Please select a fighter for every fight on the card");
-        return "Error";
-    } else {
-        console.log(result); // Output the result or handle it as needed
-        this.innerHTML = 'Thanks for submitting';  // Change the button text to "Thanks for submitting"
-        this.disabled = true;  // Disable the button to prevent further clicks
-        return result;
-    }
-});
         </script>
     </body>
 </html>
