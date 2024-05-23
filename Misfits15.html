@@ -1266,20 +1266,16 @@ document.getElementById('firebutton16').addEventListener('click', function() {
     }
     // Toggle 'fire-active' class on this button
     this.classList.toggle('fire-active');
-    var dropdown = document.getElementById('fightDetails8'); // Get the dropdown menu element
-    // Use setTimeout to delay the check of dropdown visibility
-    setTimeout(function() {
-        // Check if the dropdown menu is shown
-        var bsCollapse = new bootstrap.Collapse(dropdown, {
-            toggle: false // Prevent automatic toggling
-        });
-        if (dropdown.classList.contains('show')) {
-            bsCollapse.hide();
-        } else {
-            bsCollapse.show();
-        }
-    }, 10); // Delay of 10 milliseconds
+
+    document.getElementById('fightDetails8').addEventListener('shown.bs.collapse', function () {
+    // This function will be called after the element is fully shown
+    var bsCollapse = new bootstrap.Collapse(this, {
+        toggle: false
+    });
+    bsCollapse.hide();
 });
+});
+
 
 // Get the element you want to collapse or expand
 var myCollapseElement = document.getElementById('fightDetails2');
