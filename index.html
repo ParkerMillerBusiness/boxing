@@ -53,6 +53,9 @@
 						<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="http://ParkerMillerBusiness.github.io/boxing/Misfits15.html">Misfits 15</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" id="navRegister" href="http://ParkerMillerBusiness.github.io/boxing/register.html">Register</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" id="navSignIn" href="http://ParkerMillerBusiness.github.io/boxing/login.html">Sign in</a></li>
+                        <li class="nav-item mx-0 mx-lg-1">
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded" id="navSignOut" href="javascript:void(0);">Sign Out</a>
+                        </li>
                         <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#resume">Experience</a></li> -->
                     </ul>
                 </div>
@@ -200,6 +203,25 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         console.log('No username found in localStorage.');
     }
+    var signOutButton = document.getElementById('navSignOut');
+
+// Check if username exists in localStorage
+if (localStorage.getItem('username')) {
+    // Show sign out button if username exists
+    signOutButton.style.display = 'block';
+} else {
+    // Hide sign out button if no username exists
+    signOutButton.style.display = 'none';
+}
+
+// Add event listener for sign out action
+signOutButton.addEventListener('click', function() {
+    localStorage.removeItem('username'); // This will delete the username from localStorage
+
+    // Optional: Provide feedback or redirect the user
+    alert('You have been signed out.');
+    window.location.href = 'http://ParkerMillerBusiness.github.io/boxing/login.html'; // Redirects to the login page
+});
 });
 
         </script>
