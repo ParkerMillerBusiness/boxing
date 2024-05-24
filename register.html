@@ -13,6 +13,14 @@
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <script type="application/ld+json">
+            {
+              "@context": "http://schema.org",
+              "@type": "WebSite",
+              "name": "Bobs Fight News",
+              "url": "http://BobsFightNews.github.io"
+            }
+            </script>
         <!-- Google Analytics Tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4F873DFQPQ"></script>
 <script>
@@ -30,26 +38,31 @@
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9394285765069873"
         crossorigin="anonymous"></script>
     </head>
-    <body>
-		<body>
-			<!-- Navigation-->
-			<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-				<div class="container">
-					<a class="navbar-brand" href="#page-top">CREATE ACCOUNT BobsFightPicks</a>
-					<button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-						Menu
-						<i class="fas fa-bars"></i>
-					</button>
-					<div class="collapse navbar-collapse" id="navbarResponsive">
-						<ul class="navbar-nav ms-auto">
-							<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="http://ParkerMillerBusiness.github.io/boxing/index.html">MAIN PAGE</a></li>
-                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" id="navRegister" href="http://ParkerMillerBusiness.github.io/boxing/register.html">Register</a></li>
-                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" id="navSignIn" href="http://ParkerMillerBusiness.github.io/boxing/login.html">Sign in</a></li>
-							<!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#resume">Experience</a></li> -->
-						</ul>
-					</div>
-				</div>
-			</nav>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="#page-top">Misfits 15 Full Card</a>
+                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#main-card">Main Card</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#prelims">Prelims</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="http://ParkerMillerBusiness.github.io/boxing">Other Events</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" id="navRegister" href="http://ParkerMillerBusiness.github.io/boxing/register.html">Register</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" id="navSignIn" href="http://ParkerMillerBusiness.github.io/boxing/login.html">Sign in</a></li>
+                        <li class="nav-item mx-0 mx-lg-1">
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded" id="navSignOut" href="javascript:void(0);">Sign Out</a>
+                        </li>
+                        <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#resume">Experience</a></li> -->
+                        <!-- Hello-->
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
         <div class="container padding-top-extra">
 			<div class="row justify-content-center mt-5">
@@ -83,7 +96,7 @@
     <script type="module">
         // Import Firebase modules
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
-        import { getDatabase, ref, set, get, child, onValue } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+        import { getDatabase, ref, set, get, child, onValue,query,orderByChild, equalTo } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
   
         // Firebase configuration
         const firebaseConfig = {
@@ -101,27 +114,48 @@
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
 
-        document.getElementById("submit").addEventListener('click', function(e){
-    e.preventDefault();
-    const username = document.getElementById("username").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("phone").value; // Assuming this is the password input, though the ID is 'phone'
+        document.getElementById("submit").addEventListener('click', function(e) {
+        e.preventDefault();
+        const username = document.getElementById("username").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("phone").value; // Adjust if this is actually the password input.
 
-    set(ref(db, 'user/' + username), {
-        username: username,
-        email: email,
-        password: password,
-        picks: 0,
-        total: 0,
-        score: 0
-    }).then(() => {
-        localStorage.setItem('username', username);
-        alert("Register Successful!");
-        window.location.href = 'http://ParkerMillerBusiness.github.io/boxing/index.html'; // Redirect after successful registration
-    }).catch((error) => {
-        alert("Failed to register: " + error.message);
+        // Check if the email is already in use
+        const usersRef = ref(db, 'user/');
+        const emailQuery = query(usersRef, orderByChild('email'), equalTo(email));
+        get(emailQuery).then((snapshot) => {
+            if (snapshot.exists()) {
+                alert("Email is already in use");
+            } else {
+                // No user has this email, proceed with username check
+                const usernameRef = ref(db, 'user/' + username);
+                get(usernameRef).then((snapshot) => {
+                    if (snapshot.exists()) {
+                        alert("Username is already in use");
+                    } else {
+                        set(ref(db, 'user/' + username), {
+                            username: username,
+                            email: email,
+                            password: password,
+                            picks: 0,
+                            total: 0,
+                            score: 0
+                        }).then(() => {
+                            localStorage.setItem('username', username);
+                            alert("Register Successful!");
+                            window.location.href = 'http://ParkerMillerBusiness.github.io/boxing/index.html'; // Redirect after successful registration
+                        }).catch((error) => {
+                            alert("Failed to register: " + error.message);
+                        });
+                    }
+                }).catch((error) => {
+                    console.error("Failed to check username availability:", error);
+                });
+            }
+        }).catch((error) => {
+            console.error("Failed to check email availability:", error);
+        });
     });
-});
 
         // Function to retrieve data
         function get1() {
