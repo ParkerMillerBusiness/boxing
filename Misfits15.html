@@ -82,7 +82,6 @@
     </div>
 </section>
 
-<button id="checkVisibilityBtn" class="btn btn-primary">Check Visibility of Fight Details</button>
 
 <!-- Fight display bar section -->
 <section class="page-section" id="main-card">
@@ -943,7 +942,7 @@ document.getElementById('firebutton1').addEventListener('click', function() {
         } else {
             bsCollapse.show();
         }
-    }, 312.5); // Delay of 10 milliseconds
+    }, 343.75); // Delay of 10 milliseconds
 });
 
 document.getElementById('firebutton2').addEventListener('click', function() {
@@ -1312,15 +1311,6 @@ function collapseElement() {
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"></script>
 
-<script>
-    document.getElementById('checkVisibilityBtn').addEventListener('click', function() {
-        var fightDetails = document.getElementById('fightDetails2');
-        if (fightDetails.classList.contains('show')) {
-            alert('The fight details are visible.');
-        } else {
-            alert('The fight details are hidden.');
-        }
-    });
-    </script>
+
     </body>
 </html>
