@@ -104,9 +104,10 @@
             users.reverse();
 
             let leaderboardHtml = '<h2>Leaderboard</h2><ul class="list-group">';
-            users.forEach((user) => {
+            // Include an index to display the rank
+            users.forEach((user, index) => {
                 leaderboardHtml += `<li class="list-group-item d-flex justify-content-between align-items-center">
-                    ${user.username}
+                    ${index + 1}. ${user.username} <!-- Rank number added before username -->
                     <span class="">Correct Picks: ${user.picks || '0'}</span>
                     <span class="">Total Picks: ${user.total || '0'}</span>
                     <span class="">Score: ${user.score || 'No score'}</span>
