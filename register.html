@@ -184,28 +184,28 @@
     } else {
         console.log('No username found in localStorage.');
     }
+    var signOutButton = document.getElementById('navSignOut');
+
+// Check if username exists in localStorage
+if (localStorage.getItem('username')) {
+    // Show sign out button if username exists
+    signOutButton.style.display = 'block';
+} else {
+    // Hide sign out button if no username exists
+    signOutButton.style.display = 'none';
+}
+
+// Add event listener for sign out action
+signOutButton.addEventListener('click', function() {
+    localStorage.removeItem('username'); // This will delete the username from localStorage
+
+    // Optional: Provide feedback or redirect the user
+    alert('You have been signed out.');
+    window.location.href = 'http://ParkerMillerBusiness.github.io/boxing/login.html'; // Redirects to the login page
+});
     
 });
-const functions = require('firebase-functions');
-const admin = require('firebase-admin');
-admin.initializeApp();
 
-exports.createUser = functions.database.ref('/users/{userId}')
-    .onCreate((snapshot, context) => {
-        // Check if the new user is the first user
-        const newUserRef = snapshot.ref.parent;
-        return newUserRef.once('value')
-            .then(snapshot => {
-                if (snapshot.numChildren() === 4) { // This checks if the new user is the only user
-                    // Create the 'Fake' user
-                    return newUserRef.child('Fake').set({
-                        name: 'Fake',
-                        email: 'fake@example.com'
-                    });
-                }
-                return null;
-            });
-    });
 
     </script>
         <!-- Bootstrap JS Bundle with Popper (Bootstrap 5) -->
