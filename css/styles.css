@@ -87,15 +87,7 @@
   position: relative;
   z-index: 2; /* Ensures that the fight bar content is above the Toggle Details button */
 }
-.move-right {
-margin-left: 20px;
-}
-.move-down {
-  margin-top: 20px;
-  }
-.move-left {
-  margin-right: 20px;
-  }
+
 
 .overlay-button2 {
   position: absolute;
@@ -165,7 +157,9 @@ margin-left: 20px;
 }
 
 
-
+.padding-extra{
+  padding: 20px;
+}
 .padding-top-extra {
   padding-top: 100px;
   padding-left: 300px; /* Adjust this value based on the desired space */
