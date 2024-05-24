@@ -94,7 +94,8 @@
             <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
             <div class="divider-custom-line"></div>
         </div>
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Click a fighter's picture to make your pick, then submit below!</h2>
+        <h2 class="page-section-heading2 text-center text-uppercase text-secondary mb-0">Think you know whos going to win?</h2>
+        <h2 class="page-section-heading2 text-center text-uppercase text-secondary mb-0">Click a fighter's picture to make your pick, then submit at the bottom to get on the leaderboard!</h2>
         <!-- Fight Display Bar -->
         <div class="fight-bar bg-light p-3" id="FB1" data-bs-toggle="collapse" data-bs-target="#fightDetails2" aria-expanded="false" aria-controls="fightDetails">
             <div class="text-center mb-3">
@@ -780,7 +781,7 @@
 </div>
 </div>
 <div class="text-center padding-top-extra4">
-<button id="submit" class="btn btn-primary btn-lg">Submit</button>
+<button id="submit" class="btn btn-primary btn-lg">SUBMIT PICKS!</button>
 </div>
 
 
@@ -846,6 +847,7 @@
     if (!username) {
         console.error('Please sign in before making picks');
         alert('Please sign in before making picks');
+        window.location.href = 'http://ParkerMillerBusiness.github.io/boxing/login.html';
         return;  // Return early to prevent further execution
     }
 
