@@ -81,6 +81,13 @@
     </div>
 </section>
 
+<div id="outerButton" class="button" onclick="outerClicked()">
+    Outer Button
+    <div id="innerButton" class="button" onclick="innerClicked(event)">
+        Inner Button
+    </div>
+</div>
+
 
 <!-- Fight display bar section -->
 <section class="page-section" id="main-card">
@@ -94,14 +101,20 @@
             <div class="divider-custom-line"></div>
         </div>
         <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Pick Your Winner! Click a Fighter's Picture, Then Submit at the bottom to Join the Leaderboard.</h2>
-        <!-- Fight Display Bar -->
-        <div class="fight-bar bg-light p-3" id="FB1" data-bs-toggle="collapse" data-bs-target="#fightDetails2" aria-expanded="false" aria-controls="fightDetails">
-            <div class="text-center mb-3">
+<!-- Fight Display Bar Container -->
+<div class="fight-bar-container fight-bar position-relative bg-light">
+    <!-- Full-Width Button -->
+    <button type="button" class="position-absolute top-0 start-0 w-100 h-100" id="FB1"
+        data-bs-toggle="collapse" data-bs-target="#fightDetails2"
+        aria-expanded="false" aria-controls="fightDetails" style="background: transparent; border: none; z-index: 1;">
+        
+    </button>
+            <div class="text-center mb-3 fight-bar5">
                 <div class="fight-category text-uppercase fw-bold">Women's Middleweight bout</div>
             </div>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="text-center">
-                    <div class="relative-container fight-bar" id ='firebutton1'> 
+                    <div class="relative-container fight-bar move-right" id ='firebutton1' style="position: relative; z-index: 2;"> 
                     <img src="assets/img/portfolio/Elle Brooke (1).webp" alt="Fighter 1" class="fight-bar-img1">
                     <button class="overlay-button"></button>
                 </div>
@@ -125,7 +138,7 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <div class="relative-container fight-bar" id ='firebutton2'> 
+                    <div class="relative-container fight-bar move-left" id ='firebutton2' style="position: relative; z-index: 2;"> 
                     <button class="overlay-button"></button>
                     <img src="assets/img/portfolio/Page Vanzant (1).webp" alt="Fighter 2" class="fight-bar-img2" style="max-width: 250px; height: auto;">
                     
@@ -137,6 +150,7 @@
                 </div>
             </div>
         </div>
+
             
 
 <!-- Collapsible Details Section with Structured Chart -->
@@ -929,21 +943,9 @@ document.getElementById('firebutton1').addEventListener('click', function() {
 
     // Toggle 'fire-active' class on this button
     this.classList.toggle('fire-active');
-    
-    var dropdown = document.getElementById('fightDetails2'); // Get the dropdown menu element
-    // Use setTimeout to delay the check of dropdown visibility
-    setTimeout(function() {
-        // Check if the dropdown menu is shown
-        var bsCollapse = new bootstrap.Collapse(dropdown, {
-            toggle: false // Prevent automatic toggling
-        });
-        if (dropdown.classList.contains('show')) {
-            bsCollapse.hide();
-        } else {
-            
-        }
-    }, 375); // Delay of 10 milliseconds
+
 });
+
 
 document.getElementById('firebutton2').addEventListener('click', function() {
     var otherButton = document.getElementById('firebutton1');
@@ -953,19 +955,6 @@ document.getElementById('firebutton2').addEventListener('click', function() {
     }
     // Toggle 'fire-active' class on this button
     this.classList.toggle('fire-active');
-    var dropdown = document.getElementById('fightDetails2'); // Get the dropdown menu element
-    // Use setTimeout to delay the check of dropdown visibility
-    setTimeout(function() {
-        // Check if the dropdown menu is shown
-        var bsCollapse = new bootstrap.Collapse(dropdown, {
-            toggle: false // Prevent automatic toggling
-        });
-        if (dropdown.classList.contains('show')) {
-            bsCollapse.hide();
-        } else {
-            
-        }
-    }, 375); // Delay of 10 milliseconds
 });
 document.getElementById('firebutton3').addEventListener('click', function() {
     var otherButton = document.getElementById('firebutton4');
@@ -1301,6 +1290,14 @@ function expandCollapse() {
 // Function to collapse the element
 function collapseElement() {
   bsCollapse.hide();
+}
+function outerClicked() {
+    console.log('Outer button clicked!');
+}
+
+function innerClicked(event) {
+    console.log('Inner button clicked!');
+    event.stopPropagation(); // Prevent triggering the click event on the outer button
 }
 
 
