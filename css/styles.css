@@ -80,6 +80,7 @@
 }
 .fight-bar-container {
   position: relative;
+  padding: 20px;
 }
 
 .fight-bar5 {
@@ -89,6 +90,9 @@
 .move-right {
 margin-left: 20px;
 }
+.move-down {
+  margin-top: 20px;
+  }
 .move-left {
   margin-right: 20px;
   }
