@@ -148,7 +148,7 @@ const userRef = ref(db, '/user/' + username);
                 ufc302picks.push(ufc302[10] === 'L' ? 'Perez' : 'Edwards');
                 ufc302picks.push(ufc302[11] === 'L' ? 'Tumendemberel' : 'Lima');
 
-                userInfoHtml += `<p><strong>Misfits15 Picks:</strong> ${MisfitsPicks.length > 0 ? MisfitsPicks.join(', ') : 'No picks yet'}</p>`;
+                userInfoHtml += `<p><strong>UFC 302 Picks:</strong> ${ufc302picks.length > 0 ? ufc302picks.join(', ') : 'No picks yet'}</p>`;
             }
             if ('paultyson' in data || 'misfits15' in data || 'ufc302' in data) {
     const PaulTyson = data.paultyson || [];
