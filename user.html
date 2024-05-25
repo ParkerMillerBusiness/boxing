@@ -131,10 +131,30 @@ const userRef = ref(db, '/user/' + username);
 
                 userInfoHtml += `<p><strong>Paul vs Tyson Picks:</strong> ${PaulTysonPicks.length > 0 ? PaulTysonPicks.join(', ') : 'No picks yet'}</p>`;
             }
-            if ('paultyson' in data || 'misfits15' in data) {
+            if ('ufc302' in data) {
+                const ufc302picks = []; // Initialize MisfitsPicks as an array
+                const ufc302 = data.ufc302;
+                // Populate ufc302picks based on ufc302 values
+                ufc302picks.push(ufc302[0] === 'L' ? 'Makhachev' : 'Porier');
+                ufc302picks.push(ufc302[1] === 'L' ? 'Strickland' : 'Costa');
+                ufc302picks.push(ufc302[2] === 'L' ? 'Holland' : 'Oleksiejczuk');
+                ufc302picks.push(ufc302[3] === 'L' ? 'Almeida' : 'Romanov');
+                ufc302picks.push(ufc302[4] === 'L' ? 'Brown' : 'Dos Santos');
+                ufc302picks.push(ufc302[5] === 'L' ? 'Almeida' : 'Kopylov');
+                ufc302picks.push(ufc302[6] === 'L' ? 'Dawson' : 'Solecki');
+                ufc302picks.push(ufc302[7] === 'L' ? 'Rowe' : 'Matthews');
+                ufc302picks.push(ufc302[8] === 'L' ? 'Price' : 'Morono');
+                ufc302picks.push(ufc302[9] === 'L' ? 'Gall' : 'Hafez');
+                ufc302picks.push(ufc302[10] === 'L' ? 'Perez' : 'Edwards');
+                ufc302picks.push(ufc302[11] === 'L' ? 'Tumendemberel' : 'Lima');
+
+                userInfoHtml += `<p><strong>Misfits15 Picks:</strong> ${MisfitsPicks.length > 0 ? MisfitsPicks.join(', ') : 'No picks yet'}</p>`;
+            }
+            if ('paultyson' in data || 'misfits15' in data || 'ufc302' in data) {
     const PaulTyson = data.paultyson || [];
     const MF15 = data.misfits15 || [];
-    const total = PaulTyson.length + MF15.length;
+    const ufc302 = data.ufc302 || [];
+    const total = PaulTyson.length + MF15.length + ufc302.length;
 
     userInfoHtml += `<p><strong>Total Picks:</strong> ${total}</p>`;
 } else {
