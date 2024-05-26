@@ -62,9 +62,16 @@
 			<div class="container mt-5 pt-5"> <!-- Adjust margins and padding as needed for layout -->
 				<h2 class="padding-top-extra3">Scores are updated after every event!</h2>
 				<div id="userInfo" class="p-3 border rounded">
-					Loading user information...
+					
 				</div>
 			</div>
+
+			<button id="updateScoresBtn" class="btn btn-primary mt-3">Update Scores for Misfits 15</button>
+
+			<button id="deletePosition7Btn">Delete Position 7</button>
+			<button id="deletePosition6Btn">Delete Position 6</button>
+			<button id="deletePosition1Btn">Delete Position 1</button>
+
 
 
 
@@ -91,44 +98,172 @@
         const db = getDatabase(app);
 
 
-        // Function to retrieve data
-		function getLeaderboard() {
-    const loggedInUsername = localStorage.getItem('username'); // Get the username from local storage
+		document.getElementById('updateScoresBtn').addEventListener('click', function() {
+    const correctString = "LRRLL";
     const usersRef = ref(db, '/user/');
-    const queryRef = query(usersRef, orderByChild('score'), limitToLast(100));
 
-    get(queryRef).then((snapshot) => {
+    get(usersRef).then((snapshot) => {
         if (snapshot.exists()) {
-            const users = [];
             snapshot.forEach((childSnapshot) => {
-                const user = childSnapshot.val();
-                user.username = childSnapshot.key; // Store the username
-                users.push(user);
-            });
-            users.reverse();
+                const username = childSnapshot.key;
+                const userData = childSnapshot.val();
+                if (userData.misfits15) {
+                    const userMisfits15 = userData.misfits15;
 
-            let leaderboardHtml = '<h2>Leaderboard</h2><ul class="list-group">';
-            users.forEach((user, index) => {
-                const highlightClass = (user.username === loggedInUsername) ? 'highlight' : ''; // Apply highlight if usernames match
-                leaderboardHtml += `<li class="list-group-item list-group-item2 d-flex justify-content-between align-items-center ${highlightClass}">
-                    ${index + 1}. ${user.username}
-                    <span class="">Correct Picks: ${user.picks || '0'}</span>
-                    <span class="">Total Picks: ${user.total || '0'}</span>
-                    <span class="">Score: ${user.score || 'No score'}</span>
-                </li>`;
-            });
-            leaderboardHtml += '</ul>';
+                    // Update total picks
+                    const totalRef = ref(db, `/user/${username}/total`);
+                    set(totalRef, (userData.total || 0) + 5);
 
-            document.getElementById('userInfo').innerHTML = leaderboardHtml;
+                    let correctPicks = 0;
+                    let totalProfit = 0;  // Initialize total profit
+
+                    // Iterate over each character in the user's misfits15 string
+                    for (let i = 0; i < correctString.length; i++) {
+                        if (userMisfits15[i] === correctString[i]) {
+                            correctPicks++;
+                            // Calculate profit for each match and accumulate it
+                            totalProfit += parseFloat(calculateProfitFromOdds(getOddsForPosition(i + 1)));
+                        } else {
+                            // Subtract $100 for each mismatch
+                            totalProfit -= 100;
+                        }
+                    }
+
+                    // Round total profit to two decimal places before updating the score
+                    totalProfit = parseFloat(totalProfit.toFixed(2));
+
+                    // Update correct picks count
+                    const picksRef = ref(db, `/user/${username}/picks`);
+                    set(picksRef, (userData.picks || 0) + correctPicks);
+
+                    // Update score by adding the rounded total profit to the existing score
+                    const scoreRef = ref(db, `/user/${username}/score`);
+                    set(scoreRef, (userData.score || 0) + totalProfit);
+                }
+            });
+
+            // Alert when all operations are done
+            alert("Calculations done");
         } else {
-            document.getElementById('userInfo').innerHTML = '<p class="text-danger">No user data found.</p>';
+            console.error('No users found in the database.');
         }
     }).catch((error) => {
-        console.error('Failed to fetch user data:', error);
-        document.getElementById('userInfo').innerHTML = '<p class="text-danger">Error loading user data.</p>';
+        console.error('Failed to update scores:', error);
     });
+});
+
+function getOddsForPosition(position) {
+    const odds = {
+        1: -450,
+        2: +350,
+        3: +333,
+        4: -1600,
+        5: -550
+    };
+    return odds[position];
 }
 
+document.getElementById('deletePosition7Btn').addEventListener('click', function() {
+    const usersRef = ref(db, '/user/');
+
+    get(usersRef).then((snapshot) => {
+        if (snapshot.exists()) {
+            snapshot.forEach((childSnapshot) => {
+                const username = childSnapshot.key;
+                const userData = childSnapshot.val();
+                if (userData.misfits15 && userData.misfits15.length >= 7) {
+                    // Create a new string without the 7th position
+                    const updatedString = userData.misfits15.substring(0, 6) + userData.misfits15.substring(7);
+
+                    // Update the string in the database
+                    const misfitsRef = ref(db, `/user/${username}/misfits15`);
+                    set(misfitsRef, updatedString);
+                }
+            });
+
+            // Alert when all operations are done
+            alert("Position 7 has been deleted from all user strings.");
+        } else {
+            console.error('No users found in the database.');
+        }
+    }).catch((error) => {
+        console.error('Failed to delete position 7:', error);
+    });
+});
+
+document.getElementById('deletePosition6Btn').addEventListener('click', function() {
+    const usersRef = ref(db, '/user/');
+
+    get(usersRef).then((snapshot) => {
+        if (snapshot.exists()) {
+            snapshot.forEach((childSnapshot) => {
+                const username = childSnapshot.key;
+                const userData = childSnapshot.val();
+                if (userData.misfits15 && userData.misfits15.length >= 6) {
+                    // Create a new string without the 6th position
+                    const updatedString = userData.misfits15.substring(0, 5) + userData.misfits15.substring(6);
+
+                    // Update the string in the database
+                    const misfitsRef = ref(db, `/user/${username}/misfits15`);
+                    set(misfitsRef, updatedString);
+                }
+            });
+
+            // Alert when all operations are done
+            alert("Position 6 has been deleted from all user strings.");
+        } else {
+            console.error('No users found in the database.');
+        }
+    }).catch((error) => {
+        console.error('Failed to delete position 6:', error);
+    });
+});
+
+document.getElementById('deletePosition1Btn').addEventListener('click', function() {
+    const usersRef = ref(db, '/user/');
+
+    get(usersRef).then((snapshot) => {
+        if (snapshot.exists()) {
+            snapshot.forEach((childSnapshot) => {
+                const username = childSnapshot.key;
+                const userData = childSnapshot.val();
+                if (userData.misfits15 && userData.misfits15.length >= 1) {
+                    // Create a new string without the 1st position
+                    const updatedString = userData.misfits15.substring(1);
+
+                    // Update the string in the database
+                    const misfitsRef = ref(db, `/user/${username}/misfits15`);
+                    set(misfitsRef, updatedString);
+                }
+            });
+
+            // Alert when all operations are done
+            alert("Position 1 has been deleted from all user strings.");
+        } else {
+            console.error('No users found in the database.');
+        }
+    }).catch((error) => {
+        console.error('Failed to delete position 1:', error);
+    });
+});
+
+
+function calculateProfitFromOdds(odds) {
+    let profit;
+
+    if (odds > 0) {
+        // Calculate profit for positive odds
+        profit = (odds / 100) * 100;  // Since the bet is $100
+    } else if (odds < 0) {
+        // Calculate profit for negative odds
+        profit = (100 / Math.abs(odds)) * 100;  // Since the bet is $100
+    } else {
+        // If odds are zero, which is unusual, return 0 profit
+        profit = 0;
+    }
+
+    return profit.toFixed(2); // Return profit rounded to two decimal places
+}
 
 document.addEventListener('DOMContentLoaded', function() {
                 var username = localStorage.getItem('username');

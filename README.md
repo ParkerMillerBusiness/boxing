@@ -1,2 +1,1 @@
-# boxing
-A website for upcoming boxing cards
+# parkermillerbusiness.github.io/boxing
